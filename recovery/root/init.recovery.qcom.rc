@@ -69,7 +69,7 @@ service keystore_auth /system/bin/keystore_auth
     disabled
     seclabel u:r:recovery:s0
 
-service load_ts_firmware /sbin/load_ts_firmware.sh
+service load_modules /sbin/load_modules.sh
     user root
     group root
     disabled
@@ -132,7 +132,7 @@ on property:vendor.sys.listeners.registered=true
     start gatekeeper-1-0
     start servicemanager
     restart time_daemon
-    start load_ts_firmware
+    start load_modules
 
 on property:sys.usb.config=mtp,adb
     restart time_daemon

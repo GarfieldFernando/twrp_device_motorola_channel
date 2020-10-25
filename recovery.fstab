@@ -5,38 +5,28 @@
 # Currently we dont have e2fsck compiled. So fs check would failed.
 
 # <mount_point>  <fstype>  <device>        <device2>                  <flags>
-/data             f2fs     /dev/block/bootdevice/by-name/userdata     flags=fileencryption=ice;wrappedkey
-/cache            ext4     /dev/block/bootdevice/by-name/cache        flags=backup=1;wipeingui;wipeduringfactoryreset
-/system           ext4     /dev/block/mapper/system                   flags=backup=0;logical
-#/system_image    emmc     /dev/block/mapper/system                   flags=backup=0;flashimg=0;logical
-/super            emmc     /dev/block/bootdevice/by-name/super        flags=display="super";backup=1;flashimg=1
+/data             f2fs     /dev/block/bootdevice/by-name/userdata     flags=fileencryption=ice
+/system           ext4     /dev/block/bootdevice/by-name/system       flags=backup=0
 /boot             emmc     /dev/block/bootdevice/by-name/boot         flags=backup=1;flashimg=1
 /dtbo             emmc     /dev/block/bootdevice/by-name/dtbo         flags=display="dtbo";backup=1;flashimg=1
-/recovery         emmc     /dev/block/bootdevice/by-name/recovery     flags=backup=1;flashimg=1
-/vendor           ext4     /dev/block/mapper/vendor                   flags=display="vendor";logical
-#/vendor_image    emmc     /dev/block/mapper/vendor                   flags=display="vendor_image";logical
-/product          ext4     /dev/block/mapper/product                  flags=display="product";logical
-#/product_image   emmc     /dev/block/mapper/product                  flags=display="product_image";logical
-#/odm             ext4     /dev/block/mapper/odm                      flags=display="odm";logical
-#/odm_image       emmc     /dev/block/mapper/odm                      flags=display="odm_image";logical
+/vendor           ext4     /dev/block/bootdevice/by-name/vendor       flags=display="vendor"
+/oem              ext4     /dev/block/bootdevice/by-name/oem          flags=display="oem";backup=1
+/oem_image        emmc     /dev/block/bootdevice/by-name/oem          flags=display="oem";flashimg=1
 /firmware         vfat     /dev/block/bootdevice/by-name/modem        flags=display="Firmware"
 /firmware_image   emmc     /dev/block/bootdevice/by-name/modem        flags=display="Firmware";flashimg=1;backup=1
-/persist          ext4     /dev/block/bootdevice/by-name/persist      flags=display="Persist"
-/persist_image    emmc     /dev/block/bootdevice/by-name/persist      flags=display="Persist";flashimg=1;backup=1
-/bt_firmware      vfat     /dev/block/bootdevice/by-name/bluetooth    flags=display="bluetooth";backup=1
-/bt_firm_image    emmc     /dev/block/bootdevice/by-name/bluetooth    flags=display="bluetooth";flashimg=1
+/persist_1        ext4     /dev/block/bootdevice/by-name/persist      flags=display="Persist_1"
+/persist_image_1  emmc     /dev/block/bootdevice/by-name/persist      flags=display="Persist_1";flashimg=1;backup=1
+/persist_2        ext4     /dev/block/bootdevice/by-name/persist2     flags=display="Persist_2"
+/persist_image_2  emmc     /dev/block/bootdevice/by-name/persist2     flags=display="Persist_2";flashimg=1;backup=1
 /dsp              ext4     /dev/block/bootdevice/by-name/dsp          flags=display="dsp";backup=1
 /dsp_image        emmc     /dev/block/bootdevice/by-name/dsp          flags=display="dsp";flashimg=1
-/metadata         ext4     /dev/block/bootdevice/by-name/metadata     flags=display="metadata";backup=1;wrappedkey
+/metadata         ext4     /dev/block/bootdevice/by-name/metadata     flags=display="metadata";backup=1
 /metadata_image   emmc     /dev/block/bootdevice/by-name/metadata     flags=display="metadata";flashimg=1
-/cust             ext4     /dev/block/bootdevice/by-name/cust         flags=display="cust";backup=1
-/cust_image       emmc     /dev/block/bootdevice/by-name/cust         flags=display="cust";flashimg=1
-/splash           emmc     /dev/block/bootdevice/by-name/splash       flags=display="splash";backup=1;flashimg=1
+/logo             emmc     /dev/block/bootdevice/by-name/logo         flags=display="logo";backup=1;flashimg=1
 /tz               emmc     /dev/block/bootdevice/by-name/tz           flags=display="tz";backup=1;flashimg=1
 /vbmeta           emmc     /dev/block/bootdevice/by-name/vbmeta       flags=display="vbmeta";backup=1;flashimg=1
 
 /misc             emmc     /dev/block/bootdevice/by-name/misc
-/keystore         emmc     /dev/block/bootdevice/by-name/keystore
 /ssd              emmc     /dev/block/bootdevice/by-name/ssd
 /frp              emmc     /dev/block/bootdevice/by-name/frp
 /ddr              emmc     /dev/block/bootdevice/by-name/ddr
@@ -47,8 +37,7 @@
 /efs1             emmc     /dev/block/bootdevice/by-name/modemst1     flags=backup=1;display=EFS
 /efs2             emmc     /dev/block/bootdevice/by-name/modemst2     flags=backup=1;subpartitionof=/efs1
 
-/abl              emmc     /dev/block/bootdevice/by-name/abl          flags=display="abl";backup=1;flashimg=1
-/xbl              emmc     /dev/block/bootdevice/by-name/xbl          flags=display="xbl";backup=1;flashimg=1
+/aboot            emmc     /dev/block/bootdevice/by-name/aboot        flags=display="abl";backup=1;flashimg=1
 /apdp             emmc     /dev/block/bootdevice/by-name/apdp         flags=display="apdp";backup=1;flashimg=1
 /cmnlib64         emmc     /dev/block/bootdevice/by-name/cmnlib64     flags=display="cmnlib64";backup=1;flashimg=1
 /cmnlib           emmc     /dev/block/bootdevice/by-name/cmnlib       flags=display="cmnlib";backup=1;flashimg=1
@@ -56,5 +45,5 @@
 /hyp              emmc     /dev/block/bootdevice/by-name/hyp          flags=display="hyp";backup=1;flashimg=1
 /devcfg           emmc     /dev/block/bootdevice/by-name/devcfg       flags=display="devcfg";backup=1;flashimg=1
 
-/external_sd      vfat     /dev/block/mmcblk0p1  /dev/block/mmcblk0   flags=display="external_sd";storage;wipeingui;removable;fsflags="utf8"
-/usb-otg          vfat     /dev/block/sdg1       /dev/block/sdg       flags=display="usb-otg";storage;wipeingui;removable;fsflags="utf8"
+/external_sd    auto         /dev/block/mmcblk1p1  /dev/block/mmcblk1     flags=display="MicroSD Card";storage;wipeingui;removable
+/usb_otg        auto         /dev/block/sda1       /dev/block/sda         flags=display="USB-OTG";storage;wipeingui;removable

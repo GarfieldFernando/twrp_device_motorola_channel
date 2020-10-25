@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013, The Linux Foundation. All rights reserved.
+ * Copyright (c) 2013,2016, The Linux Foundation. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are
@@ -79,14 +79,9 @@ extern "C" {
 #define AB_SLOT_A_SUFFIX                "_a"
 #define AB_SLOT_B_SUFFIX                "_b"
 #define PTN_XBL                         "xbl"
-#define PTN_SWAP_LIST                   PTN_XBL, \
-            "abl", "bluetooth", "cmnlib64", "cmnlib", \
-            "devcfg", "dsp", "dtbo", "fsg", "hyp", "keymaster", \
-            "logo", "multiimgoem", "multiimgqti", "prov", \
-            "qupfw", "rpm", "storsec", "tz", "uefisecapp", \
-            "xbl_config"
-
-#define AB_PTN_LIST PTN_SWAP_LIST, "boot", "modem", "recovery", "vbmeta"
+#define PTN_XBL_CFG                     "xbl_config"
+#define PTN_SWAP_LIST                   PTN_XBL, PTN_XBL_CFG, "sbl1", "rpm", "tz", "aboot", "keymaster", "cmnlib", "cmnlib64", "devcfg", "vbmeta", "dtbo", "prov"
+#define AB_PTN_LIST PTN_SWAP_LIST, "boot", "system", "vendor", "oem", "modem", "fsg", "dsp", "logo"
 #define BOOT_DEV_DIR    "/dev/block/bootdevice/by-name"
 
 /******************************************************************************

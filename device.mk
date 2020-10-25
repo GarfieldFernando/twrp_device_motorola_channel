@@ -1,5 +1,5 @@
 
-LOCAL_PATH := device/motorola/ginna
+LOCAL_PATH := device/motorola/channel
 
 # define hardware platform
 PRODUCT_PLATFORM := msm8953

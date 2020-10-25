@@ -15,9 +15,9 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/omni_ginna.mk
+    $(LOCAL_DIR)/omni_channel.mk
 
 COMMON_LUNCH_CHOICES := \
-    omni_ginna-user \
-    omni_ginna-userdebug \
-    omni_ginna-eng
+    omni_channel-user \
+    omni_channel-userdebug \
+    omni_channel-eng
